@@ -15,15 +15,19 @@ class RandomWordsList extends StatefulWidget {
 class RandomWordsListState extends State<StatefulWidget> {
   List<Widget> _getList() {
     return <Widget>[
-      ListView.builder(
-        padding: EdgeInsets.all(10),
-        shrinkWrap: true,
-        itemBuilder: (BuildContext context, int index) {
-          return SimpleDialogOption(
-            child: Text(getRandomWord(index)),
-          );
-        },
-      )
+      Container(
+          height: 300.0,
+          width: 300.0,
+          child: ListView.builder(
+            padding: EdgeInsets.all(10),
+            shrinkWrap: true,
+            itemBuilder: (BuildContext context, int index) {
+              return SimpleDialogOption(
+                child: Text(getRandomWord(index)),
+                onPressed: () => Navigator.pop(context, index),
+              );
+            },
+          ))
     ];
   }
 
@@ -39,8 +43,8 @@ class RandomWordsListState extends State<StatefulWidget> {
         builder: (BuildContext context) {
           return SimpleDialog(
             title: Text('random word list'),
-            children: <Widget>[Text('dkkddk')],
-            // children: _getList(),
+            // children: <Widget>[Text('dkkddk')],
+            children: _getList(),
           );
         });
   }
