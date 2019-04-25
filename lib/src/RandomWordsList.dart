@@ -21,9 +21,18 @@ class RandomWordsListState extends State<StatefulWidget> {
           child: ListView.builder(
             padding: EdgeInsets.all(10),
             shrinkWrap: true,
+            itemCount: 20, // max upper limit
             itemBuilder: (BuildContext context, int index) {
               return SimpleDialogOption(
-                child: Text(getRandomWord(index)),
+                child: Container(
+                  padding: EdgeInsets.all(5),
+                  child: Text(getRandomWord(index)),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: Colors.black12),
+                    ),
+                  ),
+                ),
                 onPressed: () => Navigator.pop(context, index),
               );
             },
@@ -32,18 +41,12 @@ class RandomWordsListState extends State<StatefulWidget> {
   }
 
   Future<void> _getRandomWordsList(BuildContext context) async {
-    // return await showDatePicker(
-    //     context: context,
-    //     firstDate: DateTime(2018),r
-    //     lastDate: DateTime(2023),
-    //     initialDate: DateTime.now());
     return await showDialog(
         context: context,
         barrierDismissible: false,
         builder: (BuildContext context) {
           return SimpleDialog(
             title: Text('random word list'),
-            // children: <Widget>[Text('dkkddk')],
             children: _getList(),
           );
         });
