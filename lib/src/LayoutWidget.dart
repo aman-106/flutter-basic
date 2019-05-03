@@ -3,6 +3,7 @@ import './ActionButtonBar.dart';
 import './InformationCard.dart';
 import './DialogContainer.dart';
 import './RandomWordsList.dart';
+import './Login.dart';
 
 class LayoutWidget extends StatelessWidget {
   LayoutWidget({Key key}) : super(key: key);
@@ -15,6 +16,9 @@ class LayoutWidget extends StatelessWidget {
         InformationCard(),
         DialogContainer(),
         RandomWordsList(),
+        Login(
+          loggedIn: false,
+        ),
       ],
     ));
   }
