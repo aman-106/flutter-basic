@@ -4,6 +4,7 @@ import './InformationCard.dart';
 import './DialogContainer.dart';
 import './RandomWordsList.dart';
 import './Login.dart';
+import './GoogleLogIn.dart';
 
 class LayoutWidget extends StatelessWidget {
   LayoutWidget({Key key}) : super(key: key);
@@ -19,6 +20,7 @@ class LayoutWidget extends StatelessWidget {
         Login(
           loggedIn: false,
         ),
+        GoogleLogIn(),
       ],
     ));
   }
