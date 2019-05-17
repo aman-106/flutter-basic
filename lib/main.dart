@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'src/LayoutWidget.dart';
+import './src/YoutubeTrends.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
 void main() => runApp(MyApp());
 
+const Color appbarcolor = Color.fromRGBO(98, 3, 239, 1);
 
 class MyApp extends StatelessWidget {
   @override
@@ -10,14 +12,16 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       home: MyHomePage(),
       theme: new ThemeData(
-        primaryColor: Colors.white,
-        primarySwatch: Colors.blue,
-      ),
+          primaryColor: Colors.white,
+          primarySwatch: Colors.blue,
+          appBarTheme: AppBarTheme(
+            color: appbarcolor,
+          )),
     );
   }
 }
 
-const appTitle = 'title';
+const appTitle = 'TrendyTube';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -28,10 +32,19 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(appTitle),
-        backgroundColor: Colors.deepPurple,
       ),
-      body: LayoutWidget(),
-      backgroundColor: Colors.white,
+      body: Stack(
+        children: <Widget>[
+          FlareActor(
+            "assets/images/wallpaper.flr",
+            alignment: Alignment.center,
+            fit: BoxFit.contain,
+            animation: 'rotate',
+          ),
+          YoutubeTrends(),
+        ],
+      ),
+      // backgroundColor: Colors.white,
     );
   }
 }

@@ -13,14 +13,14 @@ class LayoutWidget extends StatelessWidget {
     return Center(
         child: Column(
       children: <Widget>[
-        ActionButtonBar(),
-        InformationCard(),
-        DialogContainer(),
-        RandomWordsList(),
-        Login(
-          loggedIn: false,
-        ),
-        GoogleLogIn(),
+       ActionButtonBar(),
+       InformationCard(),
+       DialogContainer(),
+       RandomWordsList(),
+       Login(
+         loggedIn: false,
+       ),
+       GoogleLogIn(),
       ],
     ));
   }
