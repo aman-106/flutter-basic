@@ -1,71 +1,42 @@
 {
   "project_info": {
-    "project_number": "491308201188",
-    "firebase_url": "https://store-a93fd.firebaseio.com",
-    "project_id": "store-a93fd",
-    "storage_bucket": "store-a93fd.appspot.com"
+    "project_number": "83675940493",
+    "firebase_url": "https://trends-3a167.firebaseio.com",
+    "project_id": "trends-3a167",
+    "storage_bucket": "trends-3a167.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:491308201188:android:1bbcb462593df32e",
+        "mobilesdk_app_id": "1:83675940493:android:1bbcb462593df32e",
         "android_client_info": {
           "package_name": "com.amandeep.store"
         }
       },
       "oauth_client": [
         {
-          "client_id": "491308201188-gp9dqchkgri48csh9up2dah482r0kh9p.apps.googleusercontent.com",
+          "client_id": "83675940493-d5n1bfai2ptpbm9u9oetvsim2juebttn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.amandeep.store",
-            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+            "certificate_hash": "5e69b4b8a9560112c46eed6f32b41190ced428f4"
           }
         },
         {
-          "client_id": "491308201188-5oiqoej4q9qsvm4lscekbfo3cemm7efb.apps.googleusercontent.com",
+          "client_id": "83675940493-5pg24lpft2kcntvcr9pi0blkm64sldda.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB-aC1xrXUEVjID1YRJB2ilFYqmvsWCuKE"
+          "current_key": "AIzaSyBkbD_jdsUb5N2mxbkPI8MlkdXuxxIakyc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "491308201188-5oiqoej4q9qsvm4lscekbfo3cemm7efb.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:491308201188:android:049749e3c091ef99",
-        "android_client_info": {
-          "package_name": "com.example.store"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "491308201188-5oiqoej4q9qsvm4lscekbfo3cemm7efb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB-aC1xrXUEVjID1YRJB2ilFYqmvsWCuKE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "491308201188-5oiqoej4q9qsvm4lscekbfo3cemm7efb.apps.googleusercontent.com",
+              "client_id": "83675940493-5pg24lpft2kcntvcr9pi0blkm64sldda.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
