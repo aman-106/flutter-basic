@@ -5,16 +5,27 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import './AuthUser.dart';
 import './Model.dart';
+import './YoutubeApi.dart';
 
 // mock youtube api
 Future<String> _loadYouTubeMockData() async {
   return await rootBundle.loadString('assets/mockdata/youtubechart.json');
 }
 
+final youtubeApi = YoutubeApi();
+String apikey = 'AIzaSyL8SY-Yho9yxS--S234567PpR6RiGhEMY';
+final options = YoutubeVideosOptions(apikey: apikey);
+
 Future<YoutubeChart> loadYouTubeApi() async {
-  String jsonString = await _loadYouTubeMockData();
-  final jsonResponse = json.decode(jsonString);
-  return new YoutubeChart.fromJson(jsonResponse);
+  // String jsonString = await _loadYouTubeMockData();
+  // final jsonResponse = json.decode(jsonString);
+  // return new YoutubeChart.fromJson(jsonResponse);
+  var options1 = options.toInMostPoppularJson();
+  print(options1);
+  var response =
+      await youtubeApi.getTrendingVideos(options1);
+  var jsonData = json.decode(response.body);
+  return new YoutubeChart.fromJson(jsonData);
 }
 
 // show card to display youtube content
@@ -22,12 +33,12 @@ class YoutubeInfoCard extends StatefulWidget {
   final VideoInfo videoInfo;
   YoutubeInfoCard({this.videoInfo});
   @override
-  State<StatefulWidget> createState() {
+  YoutubeInfoCardState createState() {
     return YoutubeInfoCardState();
   }
 }
 
-class YoutubeInfoCardState extends State<StatefulWidget> {
+class YoutubeInfoCardState extends State<YoutubeInfoCard> {
   bool _focused = false;
 
   void _focusCard(DragDownDetails _) {
@@ -44,6 +55,7 @@ class YoutubeInfoCardState extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final VideoInfo videoInfo = widget.videoInfo;
     return Card(
         margin: EdgeInsets.all(10),
         elevation: _focused ? 10.0 : 1.0,
@@ -62,14 +74,13 @@ class YoutubeInfoCardState extends State<StatefulWidget> {
                       borderRadius: BorderRadius.circular(4),
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image:
-                            NetworkImage(widget.videoInfo.thumbnailsMediumUrl),
+                        image: NetworkImage(videoInfo.thumbnailsMediumUrl),
                       ))),
               Container(
                   margin: const EdgeInsets.all(10.0),
                   child: Center(
                     child: Text(
-                      widget.videoInfo.title,
+                      videoInfo.title,
                       softWrap: true,
                       style: TextStyle(fontStyle: FontStyle.italic),
                     ),
@@ -93,9 +104,9 @@ class YoutubeTrendsState extends State<StatefulWidget> {
   @override
   void initState() {
     super.initState();
-    handleSignIn()
-        .then((FirebaseUser user) => print(user))
-        .catchError((e) => print(e));
+    // handleSignIn()
+    //     .then((FirebaseUser user) => print(user))
+    //     .catchError((e) => print(e));
     loadYouTubeApi().then((s) => setState(() {
           youtubeChartObj = s;
         }));

@@ -1,11 +1,21 @@
 class YoutubeChart {
   String etag;
-  List<VideoInfo> items;
+  List<VideoInfo> items = [];
   int resultsPerPage;
   int totalResults;
+
   YoutubeChart({this.etag, this.items, this.resultsPerPage, this.totalResults});
 
+  YoutubeChart.error() {
+    YoutubeChart(etag: '', items: [], resultsPerPage: 0, totalResults: 0);
+  }
+
   factory YoutubeChart.fromJson(Map<String, dynamic> parsedJson) {
+    if (parsedJson['error'] != null) {
+      print(parsedJson['error']);
+      YoutubeChart.error();
+    }
+
     var list = parsedJson['items'] as List;
     List<VideoInfo> itemsList =
         list.map((item) => VideoInfo.fromJson(item)).toList();
